@@ -363,28 +363,27 @@ def make_vgg16_model():
 
 
 if __name__ == '__main__':
-
-    max_step_to_run = int(sys.argv[1])
+    step_to_run = int(sys.argv[1])
     
     # Step 0:
-    if max_step_to_run == 1:
+    if step_to_run == 1:
         try_image_augmentation()
         
     # Step 1:
-    if max_step_to_run == 2:
+    if step_to_run == 2:
         history0, model0= train_simple_cnn()
         plot_history(history0, model0, 'CNN-sample-history.png')
         plot_model(model0, to_file='CNN-model.png', show_shapes=True)
 
     # Step 2:
-    if max_step_to_run == 3:
+    if step_to_run == 3:
         model1 = make_vgg16_model()
         history1, model1 = train_model(model1)
         plot_history(history1, model1, 'VGG-Trans-sample-history.png')
         plot_model(model1, to_file='VGG-Trans-model.png', show_shapes=True)
 
 
-    if max_step_to_run == 4:
+    if step_to_run == 4:
         from keras.models import load_model
         temp_model = load_model('trans_vgg16.h5')
         img_path = PAR_DIR+'/preview/cat_0_3116.jpeg'
@@ -396,4 +395,3 @@ if __name__ == '__main__':
         preds = temp_model.predict(x)
         print('Predicted:', preds)
 
-        
