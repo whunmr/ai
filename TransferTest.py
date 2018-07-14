@@ -20,8 +20,8 @@ from plotlog import plot_history
 # keras.applications.vgg16.VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
 
 
+PAR_DIR="./sample/"
 #here we define some parameters, i.e. path
-PAR_DIR='/Users/hmwang/Desktop/ai/sample/'
 img_height,img_width = 224, 224
 img_size = (img_width, img_height )
 batch_size = 16
@@ -365,8 +365,9 @@ def make_vgg16_model():
 if __name__ == '__main__':
 
     # Step 0:
-    if 0:
+    if 1:
         try_image_augmentation()
+        
     # Step 1:
     if 0:
         history0, model0= train_simple_cnn()
@@ -381,7 +382,7 @@ if __name__ == '__main__':
         plot_model(model1, to_file='VGG-Trans-model.png', show_shapes=True)
 
 
-    if 1:
+    if 0:
         from keras.models import load_model
         temp_model = load_model('trans_vgg16.h5')
         img_path = PAR_DIR+'/preview/cat_0_3116.jpeg'
